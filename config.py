@@ -1,18 +1,12 @@
-import dotenv
 import os
-
-is_loaded = dotenv.load_dotenv("./config/.env.dev")
-
-if not is_loaded:
-    raise Exception("Failed to load environment variables")
 
 class Config:
     class Database:
-        HOST = os.getenv("DATABASE_HOST")
-        USER = os.getenv("DATABASE_USER")
-        PASSWORD = os.getenv("DATABASE_PASSWORD")
-        NAME = os.getenv("DATABASE_NAME")
-        PORT = os.getenv("DATABASE_PORT")
+        HOST = os.getenv("PG_HOST")
+        USER = os.getenv("POSTGRES_USER")
+        PASSWORD = os.getenv("POSTGRES_PASSWORD")
+        NAME = os.getenv("POSTGRES_DB")
+        PORT = os.getenv("PG_PORT")
 
     class JWT:
         SECRET = os.getenv("JWT_SECRET")
