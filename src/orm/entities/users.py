@@ -1,6 +1,6 @@
 from sqlalchemy import Table, Column, Integer, String, DateTime, func, Enum
-from src.alchemy.entities.base import metadata
-from src.alchemy.types import Roles, LowerString, EmailString
+from src.orm.entities.base import metadata
+from src.orm.types import Roles, LowerString, EmailString
 
 users = Table(
     "users",

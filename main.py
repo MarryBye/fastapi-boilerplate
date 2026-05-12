@@ -3,8 +3,8 @@ from fastapi.middleware import cors
 
 from src.api.v1 import router as v1
 
-from src.alchemy.config import engine
-from src.alchemy.entities import create_tables
+from src.orm.config import engine
+from src.orm.entities import create_tables
 
 app = FastAPI()
 

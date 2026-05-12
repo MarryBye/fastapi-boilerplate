@@ -9,6 +9,7 @@ class Roles(PyEnum):
 
 class LowerString(TypeDecorator):
     impl = String
+    cache_ok = True
 
     def process_bind_param(self, value, dialect):
         if isinstance(value, str):
@@ -16,12 +17,12 @@ class LowerString(TypeDecorator):
         return value
 
     def process_result_value(self, value, dialect):
-        if value is not None:
+        if isinstance(value, str):
             return value.lower()
         return value
 
-class EmailString(TypeDecorator):
-    impl = LowerString
+class EmailString(LowerString):
+    cache_ok = True
 
     def process_bind_param(self, value, dialect):
         if isinstance(value, str):

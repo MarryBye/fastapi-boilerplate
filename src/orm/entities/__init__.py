@@ -1,5 +1,5 @@
-from src.alchemy.entities.base import metadata
-from src.alchemy.entities.users import users
+from src.orm.entities.base import metadata
+from src.orm.entities.users import users
 
 async def create_tables(engine):
     async with engine.begin() as conn:
